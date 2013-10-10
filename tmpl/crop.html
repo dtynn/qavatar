@@ -60,10 +60,10 @@
                         y = $('#y').val(),
                         w = $('#w').val(),
                         h = $('#h').val();
-                var crop  = '|imageMogr/v2/crop!' + w +'x' + h + 'a' + x + 'a' + y + '/thumbnail/!256x256r';
+                var crop  = '|imageMogr/v2/crop/!' + w +'x' + h + 'a' + x + 'a' + y + '/thumbnail/!256x256r';
                 window.location.href = baseUrl + crop;
             }else{
-                $('#cropResult').html('未选定区域');
+                alert('未选定区域');
             }
         });
     });
