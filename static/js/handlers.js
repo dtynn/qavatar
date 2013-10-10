@@ -119,7 +119,7 @@ function uploadSuccess(file, serverData) {
         var ret = eval('(' + serverData + ')');
         //按实际的应用需求修改判断上传成功的标准
         if (ret.key) {
-            var url = "/view?key=" + ret.key;
+            var url = "/crop?key=" + ret.key;
             window.location.href = url;
         } else {
             alert("上传失败");
