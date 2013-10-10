@@ -9,7 +9,9 @@
 <body>
 <img src="{{ domain }}/{{ key }}?imageMogr/v2/thumbnail/600x600" id="origin"><br>
 <p>预览：</p>
-<img src="{{ domain }}/{{ key }}?imageMogr/v2/thumbnail/600x600" id="preview"><br>
+<div style="width:256px;height:256px;overflow:hidden;">
+    <img src="{{ domain }}/{{ key }}?imageMogr/v2/thumbnail/600x600" id="preview"><br>
+</div>
 <a href="#" id="get_avatar">查看头像</a>
 <input type="hidden" id="x" name="x">
 <input type="hidden" id="y" name="y">
@@ -40,8 +42,8 @@
             $('#h').val(parseInt(c.h));
         }
         function showPreview(c){
-            var rx = 96 / c.w;
-            var ry = 96 / c.h;
+            var rx = 256 / c.w;
+            var ry = 256 / c.h;
             var img_h=$('#origin').height();
             var img_w=$('#origin').width();
 
@@ -60,7 +62,7 @@
                         y = $('#y').val(),
                         w = $('#w').val(),
                         h = $('#h').val();
-                var crop  = '/crop/!' + w +'x' + h + 'a' + x + 'a' + y + '/thumbnail/256x256';
+                var crop  = '|imageMogr/v2/crop/!' + w +'x' + h + 'a' + x + 'a' + y + '/thumbnail/256x256';
                 window.location.href = baseUrl + crop;
             }else{
                 alert('未选定区域');
